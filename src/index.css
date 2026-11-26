@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Fredoka', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+    background-color: #f6f1e4;
+    color: #2f261d;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+.tabular-math {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Paper-cutout stop-motion twitching ("纸片抽动") */
+@keyframes paperTwitch {
+  0% {
+    transform: translateY(0px) rotate(-2deg) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) rotate(2.5deg) scale(1.015);
+  }
+  100% {
+    transform: translateY(0px) rotate(-2deg) scale(1);
+  }
+}
+
+@keyframes paperWalk {
+  0% {
+    transform: translateY(0px) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(4deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-4deg);
+  }
+}
+
+@keyframes paperPick {
+  0% {
+    transform: translateY(0px) rotate(-3deg) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) rotate(5deg) scale(1.04);
+  }
+  100% {
+    transform: translateY(0px) rotate(-3deg) scale(1);
+  }
+}
+
+@keyframes bananaPop {
+  0% {
+    transform: scale(0.4) translateY(-18px);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1) translateY(2px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes characterEnter {
+  0% {
+    transform: translateY(16px) scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-paper-twitch {
+  animation: paperTwitch 0.55s steps(2, end) infinite;
+}
+
+.animate-paper-walk {
+  animation: paperWalk 0.38s steps(2, end) infinite;
+}
+
+.animate-paper-pick {
+  animation: paperPick 0.42s steps(2, end) infinite;
+}
+
+.animate-banana-pop {
+  animation: bananaPop 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-character-enter {
+  animation: characterEnter 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.paper-cutout {
+  filter: drop-shadow(0 0 2px #fffdf8) drop-shadow(0 0 2px #fffdf8) drop-shadow(0 5px 10px rgba(47, 38, 29, 0.2));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-paper-twitch,
+  .animate-paper-walk,
+  .animate-paper-pick,
+  .animate-banana-pop,
+  .animate-character-enter {
+    animation: none !important;
+  }
+}

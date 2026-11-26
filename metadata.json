@@ -1,0 +1,8 @@
+{
+  "name": "Remix Pure-Mother2",
+  "description": "Interactive learning activity demo",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
